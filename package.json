@@ -1,0 +1,44 @@
+{
+  "name": "xingzhi",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "supervisor ./bin/www",
+    "dev": "webpack --watch",
+    "webstart": "webpack-dev-server ./public/javascripts/main.js"
+  },
+  "devDependencies": {
+    "babel-core": "^5.5.8",
+    "babel-loader": "^5.1.4",
+    "babel-runtime": "^5.8.20",
+    "css-loader": "^0.16.0",
+    "file-loader": "^0.8.4",
+    "html-loader": "^0.3.0",
+    "raw-loader": "^0.5.1",
+    "style-loader": "^0.12.3",
+    "template-html-loader": "0.0.3",
+    "url-loader": "^0.5.6",
+    "vue-loader": "^3.0.3",
+    "webpack": "^1.12.0",
+    "webpack-dev-server": "^1.9.0"
+  },
+  "dependencies": {
+    "body-parser": "~1.13.2",
+    "connect-flash": "^0.1.1",
+    "connect-redis": "^2.4.1",
+    "cookie-parser": "~1.3.5",
+    "debug": "~2.2.0",
+    "director": "^1.2.8",
+    "express": "~4.13.1",
+    "express-session": "^1.11.3",
+    "jade": "~1.11.0",
+    "mongoose": "^4.1.5",
+    "morgan": "~1.6.1",
+    "page": "^1.6.3",
+    "redis": "^0.12.1",
+    "serve-favicon": "~2.3.0",
+    "vue": "^0.12.10",
+    "vue-resource": "^0.1.13",
+    "vue-touch": "^0.1.2"
+  }
+}

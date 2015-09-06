@@ -1,0 +1,70 @@
+@import "icon.css";
+@font-face {font-family: 'webfont';
+  src: url('../fonts/webfont.eot');
+  src: url('../fonts/webfont.eot?#iefix') format('embedded-opentype'), 
+  url('../fonts/webfont.woff') format('woff'), 
+  url('../fonts/webfont.ttf') format('truetype'), 
+  url('../fonts/webfont.svg#思源黑体-极细') format('svg'); 
+}
+
+*{
+  padding: 0;
+  margin:0;
+}
+
+html,body{
+  height: 100%;
+  width: 100%;
+  font-family: webfont;
+  font-weight: lighter;
+}
+a{
+  text-decoration: none;
+}
+
+.error,
+.success{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  color: #fff;
+  background:red;
+  font-size: 1rem;
+  opacity: .8;
+  z-index: 233333;
+}
+
+.success{
+ background:rgba(102,102,153,.8);
+}
+
+.fade-enter{
+  animation:fade-in .5s;
+}
+.fade-leave{
+  animation:fade-out 1s;
+}
+
+@keyframes fade-in{
+  0% {
+    opacity: 0;
+  }
+  100%{
+    opacity: 0.8;
+  }
+}
+
+@keyframes fade-out{
+  0% {
+    opacity: 0.8;
+  }
+  100%{
+    opacity: 0;
+  }
+}
+
+

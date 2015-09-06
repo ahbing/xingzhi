@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  form(action="/users/addUser" method="POST")
+    input(type="email" name="email" placeholder="email" required)
+    input(type="text" name="name" placeholder="name" required)
+    input(type="text" name="password" placeholder="default　password")
+    input(type="submit" value="add user")
