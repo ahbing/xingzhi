@@ -23,7 +23,7 @@ exports.task = {
   gettasks: function(time,cb){
     var url = '/gettasks/'+time
     return Vue.http.get(url,function(res){
-      console.log(res)
+      //console.log(res)
       cb && cb(res)
     })
   },
@@ -33,7 +33,7 @@ exports.task = {
   },
   update: function(data,cb){
     return Vue.http.post('/update',data,function(res){
-      console.log(res)
+      //console.log(res)
       cb && cb(res)
     })
   },
@@ -53,7 +53,7 @@ exports.user = {
     return Vue.http.post('/login', data,function(user){
       //browser
       if(user && user.email){
-        console.log(user)
+        //console.log(user)
         trackUser(user)
       }
       cb && cb(user)

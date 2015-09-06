@@ -18,12 +18,8 @@
         e.preventDefault()
         api.user.checkuser(function(res){
           if(res && res.email){
-            //console.log(window.location)
-            //console.log(res)
             window.location.hash = '/person'
-            //this.$root.view = 'person'
           }else{
-            // this.$root.view = 'login'
             window.location.hash = '/login' 
           }
         }.bind(this))

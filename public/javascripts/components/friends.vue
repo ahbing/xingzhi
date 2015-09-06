@@ -62,7 +62,7 @@ var api = require('./../api.js')
         //   console.log(res)
         // })
         var hash = '/friend/'+friend._id
-        console.log(hash)
+       // console.log(hash)
         window.location.hash = hash
         this.showLeft = !this.showLeft
       }

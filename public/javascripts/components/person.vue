@@ -66,7 +66,6 @@
       v-class="addTaskBtn:!showTextarea">
       <img v-show="!showTextarea" src="./../../icon/add.png" alt="add">
     </span>
-
     <span v-show="showTextarea" 
       v-on="click:addNewTask" 
       v-transition="bounce"  
@@ -241,10 +240,10 @@
       },
       updateTasks: function(){
         var data = {time:this.time,tasks: this.tasks}
-        console.log('更新tasks')
-        console.log(this.tasks)
+        //console.log('更新tasks')
+        //console.log(this.tasks)
         api.task.update(data,function(res){
-          console.log(res)
+          //console.log(res)
           if(res.showerror){
             this.showerror = res.showerror
             setTimeout(function(){
@@ -378,13 +377,14 @@
     bottom: 10%;
     right: 10%;
   }
+
   .saveTaskBtn{
-    bottom: 10%;
     right: 10%;
+    bottom:3.6rem;
   }
   .cancelTaskBtn{
-    bottom: 20%;
     right: 10%;
+    bottom: 7.2rem;
   }
   .addTaskBtn>img,
   .saveTaskBtn>img,
@@ -399,13 +399,13 @@
     transition: all .6s ease-in-out;
     position: absolute;
     right:22%;
-    bottom: 10%;
+    bottom:3.6rem;
     width: 60%;
     border: none;
     border-bottom: 2px solid #eee;
     background-color: inherit;
     padding: .6rem;
-    font-size: .8rem;
+    font-size: 1rem;
   }
   .showTextarea-enter,
   .showTextarea-leave{

@@ -45,7 +45,7 @@
     methods: {
       toggleMore: function(){
         this.showMore = !this.showMore
-        console.log(this.showMore)
+        //console.log(this.showMore)
       },
       toggleLeft: function(){
         this.showLeft = !this.showLeft

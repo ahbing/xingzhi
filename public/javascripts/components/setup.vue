@@ -30,7 +30,7 @@
     ready:function(){
       var user = JSON.parse(localStorage.getItem('beta'))
 
-      console.log(user)
+      //console.log(user)
       user = user ? user : this.user
       this.$set('user',user)
     },

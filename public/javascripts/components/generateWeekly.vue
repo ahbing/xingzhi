@@ -32,7 +32,7 @@
     attached: function(){
       this.preWeekly()
       this.showLeft = false
-      console.log(this.publishtime)
+      //console.log(this.publishtime)
     },
     repalce:true,
     data:function(){
@@ -67,13 +67,13 @@
       },
       preWeekly: function(){
         api.task.preWeekly(function(res){ 
-          console.log(res)         
+          //console.log(res)         
           var weekly = res.weekly
           if(weekly && !weekly.length) return
           this.$set('time',weekly[weekly.length-1].time)
           var tasks = []
           weekly.forEach(function(value,index,arr){
-            console.log(value.tasks)
+            //console.log(value.tasks)
             tasks = tasks.concat(value.tasks)
           })
           

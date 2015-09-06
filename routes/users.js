@@ -24,7 +24,7 @@ router.post('/addUser', function(req, res, next) {
     if(err){
       return console.log(err)
     }
-    console.log(newUser)
+    //console.log(newUser)
     res.redirect('back')
   })
   

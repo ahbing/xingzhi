@@ -35,7 +35,7 @@ router.post('/login', function(req, res) {
 })
 
 router.get('/welcome',function(req,res){
-  console.log(req.session.user)
+  // console.log(req.session.user)
   var user = req.session.user
   if(user){
     //用戶已經登錄  可以查看person頁面
@@ -71,15 +71,15 @@ router.get('/friends',function(req,res){
   // 數據庫查詢所有用戶 id name header updatetime 字段
 
   var userId = req.session.user._id
-  console.log(userId)  
+  //console.log(userId)  
   //去除和登錄用戶相同id的user  即 去除本人
 
   User.find({},{name:1,header:1,updatetime:1},function(err,users){
     if(err){
       return console.log(users)
     }
-    console.log(users)
-      var data = {
+    //console.log(users)
+    var data = {
       friends:users
     }
     res.writeHead(200,  {"Content-Type": "text/html;charset:utf-8"})
@@ -93,29 +93,29 @@ router.get('/friend/:id/page/:page',function(req,res){
   var friendId = req.params.id
   var page = req.params.page
   //  數據庫查詢
-  console.log(friendId,page)
+  //console.log(friendId,page)
   //每次請求顯示8個信息的週報入口
   var num = 8
   friendId = friendId=='me'? req.session.user._id:friendId
-  console.log(friendId)
+  //console.log(friendId)
   User.findById(friendId,{weeklies:1,name:1},function(err,user){
-    console.log(user)
+    //console.log(user)
     weeklies = user.weeklies
     name = user.name
     var times = weeklies.map(function(item,index){
       var arr = []
-      console.log(item)
+      //console.log(item)
       arr[index] = item['time']
       return arr
     })
 
-    console.log(times)
+    //console.log(times)
     var data = {
       friendId:friendId,
       name:name,
       weeklies:times
     }
-    console.log(data)
+    //console.log(data)
     res.writeHead(200,  {"Content-Type": "text/html;charset:utf-8"})
     res.write(JSON.stringify(data))
     res.end()
@@ -136,7 +136,7 @@ router.get('/weekly/:time/user/:userId',function(req,res){
     if(err){
       return console.log(err)
     }
-    console.log(user)
+    //console.log(user)
     var weeklies = user.weeklies
 
     if(weeklies && !weeklies.length) return
@@ -148,7 +148,7 @@ router.get('/weekly/:time/user/:userId',function(req,res){
       var weekly = weeklies.filter(function(item){
         return item.time == time
       })
-      console.log(weekly)
+      //console.log(weekly)
       var rtime = weekly[0].time
       var rtasks = weekly[0].tasks
     }
@@ -184,8 +184,8 @@ router.post('/update',function(req,res){
         data = {update:false}
         return console.log(err)
       }
-      console.log('---------')
-      console.log(user)
+      //console.log('---------')
+      //console.log(user)
       var theWeekly = user.weekly
       var weeklies = user.weeklies
       var date = new Date()
@@ -197,10 +197,10 @@ router.post('/update',function(req,res){
         return item == updateDay
       })
 
-      console.log(hasWeekliesTime)
+      //console.log(hasWeekliesTime)
       //  如果已經存在今天為日期的週報   說明已經提交過  那麼 今天的更新就不再  添加到 weekly了
       if(hasWeekliesTime && hasWeekliesTime.length){
-        console.log('return update')
+        //console.log('return update')
         res.writeHead(200,  {"Content-Type": "text/html;charset:utf-8"})
         res.write(JSON.stringify({showerror:true}))
         return res.end()
@@ -262,9 +262,9 @@ router.post('/update',function(req,res){
 
 router.get('/preweekly',function(req,res){
   var userId = req.session.user._id
-  console.log(userId)
+  //console.log(userId)
   User.findById(userId,{weekly:1},function(err,user){
-    console.log(user)
+    //console.log(user)
     var weekly = user.weekly
       // 讀取weekly 的數據
     var data = {
@@ -291,15 +291,15 @@ router.get('/publish/:time',function(req,res){
     var hasWeekly = weeklies.filter(function(item){
       return item.time == time
     })
-    console.log('已經提交過了')
-    console.log(hasWeekly)
+    //console.log('已經提交過了')
+    //console.log(hasWeekly)
     //如果該期週報已經儲存  就直接return
     if(hasWeekly && hasWeekly.length){
       res.writeHead(200,  {"Content-Type": "text/html;charset:utf-8"})
       res.write(JSON.stringify({hasPublished:true}))
       return res.end()
     }
-    console.log(weekly)
+    //console.log(weekly)
 
 
     var tasks = weekly.map(function(item){
@@ -308,13 +308,13 @@ router.get('/publish/:time',function(req,res){
       return a.concat(b)
     })
 
-    console.log(time)
-    console.log(tasks)
+    //console.log(time)
+    //console.log(tasks)
     var newWeekly = {
       time: time,
       tasks:tasks
     }
-    console.log(newWeekly)
+    //console.log(newWeekly)
     User.findByIdAndUpdate(userId,{
       $push:{weeklies:newWeekly},
       $set:{weekly:[]}

@@ -38,12 +38,9 @@
 <script>
   var api = require('./../api.js')
   module.exports = {
-    ready: function(){
-      this.weeklyDetail()
-      console.log(this.user)
-    },
     attached:function(){
       this.showLeft = false
+      this.weeklyDetail()
     },
     repalce:true,
     data:function(){
@@ -51,8 +48,7 @@
         showLeft: false,
         active: 'Weekly',
         user:{
-          // name:'念樹於心',
-          // header:'./../../images/header.jpg'
+          name:'行之',
         },
         time:"",
         tasks:[],
@@ -69,7 +65,7 @@
     methods: {
       weeklyDetail: function(){
         var hash = window.location.hash
-        console.log(hash.split('/'))
+        //console.log(hash.split('/'))
         var arr = hash.split('/')
 
         if(arr.length==5){
@@ -81,11 +77,13 @@
         }else{
           return
         }
-        console.log(userId)
-        console.log(time)
+        //console.log(userId)
+        //console.log(time)
         api.task.weekly(time,userId,function(res){
-          console.log(res.user)
-          this.$set('user',res.user)
+          //console.log(res.user)
+          if(req.user){
+            this.$set('user',res.user)
+          }
           this.$set('time',res.time)
           this.$set('tasks',res.tasks)
           // console.log(res.tasks[0].body)
