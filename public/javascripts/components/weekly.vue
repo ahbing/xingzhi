@@ -81,7 +81,7 @@
         //console.log(time)
         api.task.weekly(time,userId,function(res){
           //console.log(res.user)
-          if(req.user){
+          if(res && res.user){
             this.$set('user',res.user)
           }
           this.$set('time',res.time)
