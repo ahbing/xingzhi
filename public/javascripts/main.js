@@ -8,8 +8,6 @@ vueTouch.registerCustomEvent('doubletap', {
   taps: 2
 })
 
-var currentUser = JSON.parse(localStorage.getItem('beta'))
-
 var app = new Vue(require('./app.vue'))
 var router = new Router()
 Vue.app = app
@@ -28,7 +26,7 @@ router.on('/login',function(){
 })
 
 router.on('/person',function(){
-  if(!currentUser){
+  if(!app.currentUser.email){
     return app.view = 'login'
   }
   app.view = 'person'
@@ -36,7 +34,7 @@ router.on('/person',function(){
 
 // 我的日曆表
 router.on('/calendar',function(){
-  if(!currentUser){
+  if(!app.currentUser.email){
     return app.view = 'login'
   }
   app.view = 'calendar'
@@ -44,7 +42,7 @@ router.on('/calendar',function(){
 
 //朋友列表  所有朋友
 router.on('/friends',function(){
-  if(!currentUser){
+  if(!app.currentUser.email){
     return app.view = 'login'
   }
   app.view = 'friends'
@@ -52,7 +50,7 @@ router.on('/friends',function(){
 
 // // 該朋友的日曆表
 router.on('/friend/:id',function(id){
- if(!currentUser){
+ if(!app.currentUser.email){
     return app.view = 'login'
   }
   //console.log(id)
@@ -61,20 +59,20 @@ router.on('/friend/:id',function(id){
 
 // // 某人 某一週 的週報  不可編輯狀態
 router.on('/weekly/:time/user/:userId',function(){
- if(!currentUser){
+ if(!app.currentUser.email){
     return app.view = 'login'
   }
   app.view = 'weekly'
 })
 router.on('/weekly',function(){
- if(!currentUser){
+ if(!app.currentUser.email){
     return app.view = 'login'
   }
   app.view = 'weekly'
 })
 // // 某人 某一週 的週報  不可編輯狀態
 router.on('/gweekly',function(){
- if(!currentUser){
+ if(!app.currentUser.email){
     return app.view = 'login'
   }
   app.view = 'generateWeekly'
@@ -82,20 +80,20 @@ router.on('/gweekly',function(){
 
 //提交週報之後回到日曆
 router.on('/publish',function(id){
- if(!currentUser){
+ if(!app.currentUser.email){
     return app.view = 'login'
   }
   app.view = 'calendar'
 })
 router.on('/setup',function(){
- if(!currentUser){
+ if(!app.currentUser.email){
     return app.view = 'login'
   }
   app.view = 'setup'
 })
 
 router.on('/about',function(){
- if(!currentUser){
+ if(!app.currentUser.email){
     return app.view = 'login'
   }
   app.view = 'about'

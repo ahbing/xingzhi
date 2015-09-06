@@ -35,7 +35,7 @@
         api.user.login(data,function(res){
           // this.$root.view = "person"
           //console.log(res)
-          if(res  && res.email){
+          if(res && res.email){
             this.email = this.password = ''
             window.location.hash = '/person'
           }else{
