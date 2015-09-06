@@ -22,7 +22,7 @@
       </div>
     </div>
     <footerinfo></footerinfo>
-    <pre>{{$data|json}}</pre>
+    <!-- <pre>{{$data|json}}</pre> -->
   </div>
 </template>
 
