@@ -111,11 +111,11 @@
   }
   header{
     position: relative;
-    width: 100%;
+    width: 88%;
     height: 3rem;
     line-height: 3rem;
     color: #fff;
-    /*padding:.4rem 0;*/
+    padding:0 6%;
     border-bottom:1px solid rgba(102,102,153,.8);
   }
   header>a,
@@ -126,11 +126,11 @@
     top: 0;
   }
   .userheader{
-    left: 6%;
+    /*left: 6%;*/
     width: 2rem;
   }
   .username{
-    left: 20%;
+    padding-left: 2.2rem;
     width: 60%;
     letter-spacing: .4rem;
   }
@@ -166,7 +166,7 @@
   .menu-item>img,
   .showColor{
     position: absolute;
-    left: 4%;top: 0;bottom: 0;
+    top: 0;bottom: 0;
     margin:auto;
     width: 1.2rem;
   }

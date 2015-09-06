@@ -99,7 +99,7 @@ var api = require('./../api.js')
     width: auto;
     height: 2.4rem;
     line-height: 2.4rem;
-    padding-left: 2.8rem;
+    padding-left: 2.2rem;
     color:#666;
   }
   .single>em{
