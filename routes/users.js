@@ -18,7 +18,7 @@ var userArr = [
   {abbreviation:'ly',name:'李毅'},
   {abbreviation:'mkq',name:'麻凱倩'},
   {abbreviation:'xzy',name:'夏之韻'},
-  {abbreviation:'hbb',name:'黃炳炳'}
+  {abbreviation:'huangbingbing',name:'黃炳炳2'}
 ]
 
 /* GET users listing. */
@@ -64,7 +64,7 @@ router.get('/addAndSendEmail', function(req, res, next) {
   if(req.session.user.email!=='hbb@betahouse.us') return res.redirect('/')
   userArr = userArr.map(function(itme,index){
     if(itme.password || itme.email){
-      return
+      return 
     }
     itme.email = itme.abbreviation+'@betahouse.us'
     //  生成一個 固定的 隨機密碼
@@ -140,7 +140,7 @@ function send(name,email,password){
               ' 行之 是betahouse的自助週報應用。<br>'+
               '行之的UI設計是移動端優先的 <br>'+
               '所有我更想知道他在各位的手機和平板上面的效果如何，有無bug<br>'+
-              '如果你覺得 行之 有哪裡需要改進，或者你的建議，都可以回復給我。<br>'+
+              '如果你覺得 行之 有哪裡需要改進，或者你的建議，都可以回復給我(餅餅)。<br>'+
               '現在你有可以用'+email+'作為賬戶,<br>'+password+'作為密碼登錄 行之<br>'+
               '你的所有測試數據將在正式啟用 行之 的時候清除<br>'+
               '<br>'+

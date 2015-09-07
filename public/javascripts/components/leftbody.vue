@@ -82,14 +82,14 @@
 <style>
   
   .leftbody{
-    position: fixed;
-    left: -800%;
+    position: absolute;
+    left: -100%;
     width: 80%;
     height: 100%;
     background: rgba(31,35,54,1);
   }
   .showLeftbody{
-    left: 0;
+    left: -80%;
   }
   .leftIn-transition{
     transition: all .4s ease;

@@ -183,7 +183,6 @@
         day.on = true
         //  開啟一個ajax  去後臺請求數據
         this.getTasks(day.time)
-        
       },
       toggleTextarea: function(){
         this.showTextarea = !this.showTextarea
@@ -308,7 +307,7 @@
     width: 80%;
     min-height:76%;
     padding: 1.4rem 10% ;
-    background: greenyellow;
+    background: #f3f3fe;
   }
   .sunday-remind{
     position: absolute;

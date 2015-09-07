@@ -189,8 +189,8 @@ router.post('/update',function(req,res){
         data = {update:false}
         return console.log(err)
       }
-      //console.log('---------')
-      //console.log(user)
+      console.log('---------')
+      console.log(user)
       var theWeekly = user.weekly
       var weeklies = user.weeklies
       var date = new Date()
@@ -212,7 +212,7 @@ router.post('/update',function(req,res){
       }
 
       //當weekly 什麼數據都沒有的時候  添加第一個
-      if(!theWeekly.length){
+      if(theWeekly && !theWeekly.length){
         User.update(
           {_id:userId},
           {$push:{weekly:body}},
@@ -223,12 +223,12 @@ router.post('/update',function(req,res){
             }
           }
         )
-      }else{
+      }else if(theWeekly && theWeekly.length){
         var days = theWeekly.filter(function(day){
           return day.time == time
         }) 
-       // console.log('--------------------')
-       // console.log(days)
+        console.log('--------------------')
+        console.log(days)
         }
         if(days && !days.length){
           //新添加  一般是新的一天
@@ -244,9 +244,11 @@ router.post('/update',function(req,res){
           )
         }else if(days &&　days.length){
           //更新  已添加tasks的天
-         // console.log('new update')
+          console.log('new update')
+          console.log(time)
+          console.log(tasks)
           User.update(
-            {'weekly.time':time},
+            {_id:userId,'weekly.time':time},
             {'$set':{'weekly.$.tasks':tasks}},
             function(err){
               if(err){
