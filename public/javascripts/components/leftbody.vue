@@ -130,7 +130,7 @@
     width: 2rem;
   }
   .username{
-    left: 4.2rem;
+    left: 18%;
     width: 60%;
     letter-spacing: .4rem;
   }

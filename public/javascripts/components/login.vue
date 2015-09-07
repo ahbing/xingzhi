@@ -149,4 +149,53 @@
     line-height: 1.6rem;
     cursor: pointer;
   }
+/*  @media screen and (max-height: 560px) {
+    .login-img{
+      display: none;
+    }
+    .login-box form>div {
+      width: 100%;
+      height: 70%;
+      position: relative;
+      top: 0;
+    }
+  }
+*/
+   @media (min-height:385px) and (max-height: 560px) {
+    .login-img{
+      display: none;
+    }
+    .login-box form>div {
+      width: 100%;
+      height: 70%;
+      position: relative;
+      top: 0;
+    }
+  }
+  @media screen and (max-height: 384px) {
+    .login-img{
+      display: none;
+    }
+    .login-box form>div {
+      width: 100%;
+      height: 70%;
+      position: relative;
+      top: 0;
+    }
+    .login-box input{
+      height: 1rem;
+      line-height: 1rem;
+    }
+    .login-box input[type="submit"]{
+      height: 1.6rem;
+      line-height: 1.6rem;
+      bottom: -3.4rem;
+    }
+    .login-box input[type="password"]{
+      bottom: -2rem;
+    }
+    .login-box input[type="email"]{
+      bottom: -1rem;
+    }
+  }
 </style>

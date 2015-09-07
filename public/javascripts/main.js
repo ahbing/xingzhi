@@ -19,7 +19,7 @@ router.on('/',function(){
 
 router.on('/login',function(){
   if(app.currentUser.email){
-    app.view = 'welcome'
+    app.view = 'person'
   }else{
     app.view = 'login'
   }

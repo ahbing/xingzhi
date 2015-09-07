@@ -5,7 +5,7 @@ var crypto = require('crypto')
 var User = require('../models/User')
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'hello todo' })
+  res.render('index', { title: '行之' })
 })
 
 
@@ -53,7 +53,12 @@ router.get('/gettasks/:time',function(req,res){
     if(err){
       return console.log(err)
     }
-    var weekly = user.weekly
+    if(user && user.weekly){
+      var weekly = user.weekly
+    }else{
+      var weekly = []
+    }
+
     var tasks = weekly.filter(function(item){
       return item.time == time
     })
@@ -100,8 +105,8 @@ router.get('/friend/:id/page/:page',function(req,res){
   //console.log(friendId)
   User.findById(friendId,{weeklies:1,name:1},function(err,user){
     //console.log(user)
-    weeklies = user.weeklies
-    name = user.name
+    var weeklies = user && user.weeklies ? user.weeklies : []
+    var name = user && user.name ? user.name : ''
     var times = weeklies.map(function(item,index){
       var arr = []
       //console.log(item)
@@ -137,7 +142,7 @@ router.get('/weekly/:time/user/:userId',function(req,res){
       return console.log(err)
     }
     //console.log(user)
-    var weeklies = user.weeklies
+    var weeklies = user && user.weeklies ? user.weeklies : []
 
     if(weeklies && !weeklies.length) return
 
@@ -265,8 +270,13 @@ router.get('/preweekly',function(req,res){
   //console.log(userId)
   User.findById(userId,{weekly:1},function(err,user){
     //console.log(user)
-    var weekly = user.weekly
+    if( user && user.weekly){
+      var weekly = user.weekly
       // 讀取weekly 的數據
+    }else{
+      var weekly = {}
+    }
+    
     var data = {
       weekly:weekly
     }

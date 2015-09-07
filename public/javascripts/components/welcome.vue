@@ -50,10 +50,8 @@
     width: 8rem;
     height: 2.4rem;
     line-height: 2.4rem;
-    position: fixed;
-    top: 0;
-    bottom: -70%;
-    margin:auto;
+    position: absolute;
+    bottom: 5rem;
     color: #fff;
     font-size: 1.1rem;
     border: none;
