@@ -14,10 +14,12 @@ Vue.app = app
 require('./api').register(app)
 
 router.on('/',function(){
+  window.scrollTo(0, 0)
   app.view = 'welcome'
 })
 
 router.on('/login',function(){
+  window.scrollTo(0, 0)
   if(app.currentUser.email){
     app.view = 'person'
   }else{
@@ -26,6 +28,7 @@ router.on('/login',function(){
 })
 
 router.on('/person',function(){
+  window.scrollTo(0, 0)
   if(!app.currentUser.email){
     return app.view = 'login'
   }
@@ -34,6 +37,7 @@ router.on('/person',function(){
 
 // 我的日曆表
 router.on('/calendar',function(){
+  window.scrollTo(0, 0)
   if(!app.currentUser.email){
     return app.view = 'login'
   }
@@ -42,6 +46,7 @@ router.on('/calendar',function(){
 
 //朋友列表  所有朋友
 router.on('/friends',function(){
+  window.scrollTo(0, 0)
   if(!app.currentUser.email){
     return app.view = 'login'
   }
@@ -50,7 +55,8 @@ router.on('/friends',function(){
 
 // // 該朋友的日曆表
 router.on('/friend/:id',function(id){
- if(!app.currentUser.email){
+  window.scrollTo(0, 0)
+  if(!app.currentUser.email){
     return app.view = 'login'
   }
   //console.log(id)
@@ -59,20 +65,23 @@ router.on('/friend/:id',function(id){
 
 // // 某人 某一週 的週報  不可編輯狀態
 router.on('/weekly/:time/user/:userId',function(){
- if(!app.currentUser.email){
+  window.scrollTo(0, 0)
+  if(!app.currentUser.email){
     return app.view = 'login'
   }
   app.view = 'weekly'
 })
 router.on('/weekly',function(){
- if(!app.currentUser.email){
+  window.scrollTo(0, 0)
+  if(!app.currentUser.email){
     return app.view = 'login'
   }
   app.view = 'weekly'
 })
 // // 某人 某一週 的週報  不可編輯狀態
 router.on('/gweekly',function(){
- if(!app.currentUser.email){
+  window.scrollTo(0, 0)
+  if(!app.currentUser.email){
     return app.view = 'login'
   }
   app.view = 'generateWeekly'
@@ -80,20 +89,23 @@ router.on('/gweekly',function(){
 
 //提交週報之後回到日曆
 router.on('/publish',function(id){
- if(!app.currentUser.email){
+  window.scrollTo(0, 0)
+  if(!app.currentUser.email){
     return app.view = 'login'
   }
   app.view = 'calendar'
 })
 router.on('/setup',function(){
- if(!app.currentUser.email){
+  window.scrollTo(0, 0)
+  if(!app.currentUser.email){
     return app.view = 'login'
   }
   app.view = 'setup'
 })
 
 router.on('/about',function(){
- if(!app.currentUser.email){
+  window.scrollTo(0, 0)
+  if(!app.currentUser.email){
     return app.view = 'login'
   }
   app.view = 'about'
