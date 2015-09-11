@@ -35,9 +35,9 @@ router.post('/login', function(req, res) {
 })
 
 router.get('/welcome',function(req,res){
-  // console.log(req.session.user)
+  console.log(req.session.user)
   var user = req.session.user
-  if(user){
+  if(user && user._id){
     //用戶已經登錄  可以查看person頁面
     res.write(JSON.stringify(user))
   }else{

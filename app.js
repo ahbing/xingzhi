@@ -29,7 +29,8 @@ app.use(session({
     store: new RedisStore(),
     secret: 'betahouse222',
     saveUninitialized: true,
-    resave: false
+    resave: false,
+    ttl:30*24*60*60
 }));
 
 app.use('/', routes);

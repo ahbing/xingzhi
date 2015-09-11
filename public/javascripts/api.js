@@ -61,6 +61,7 @@ exports.user = {
   },
   checkuser: function(cb){
     return Vue.http.get('/welcome', function(res){
+      console.log(res)
       if(res && res.id){
         trackUser(res)
       }

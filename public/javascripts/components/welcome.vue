@@ -3,7 +3,7 @@
     <a v-on="click:checkLogin" class='xing-btn' href="#">
       行之
     </a>
-    <a target="_blank" class='zhi-btn' href="http://huangbingbing.com">
+    <a target="_blank" class='zhi-btn' href="http://zhizhi.betahouse.us">
       知之
     </a>
     <footerinfo class="w-footer"></footerinfo>
@@ -20,7 +20,9 @@
           if(res && res.email){
             window.location.hash = '/person'
           }else{
-            window.location.hash = '/login' 
+            //刪除 LocalStorage 的值
+            api.user.logout()
+            window.location.hash = '/login'
           }
         }.bind(this))
       }
