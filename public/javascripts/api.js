@@ -49,7 +49,7 @@ exports.task = {
 
 exports.user = {
   login: function(data, cb){
-    delete localStorage[USER_KEY]
+    clearUser()
     return Vue.http.post('/login', data,function(user){
       //browser
       if(user && user.email){
@@ -78,7 +78,8 @@ exports.user = {
   // 一個人  所有週報title
   friend: function(id,p,cb){
     return Vue.http.get('/friend/'+id+'/page/'+p,cb)
-  }
+  },
+  deleteLocalUser: clearUser
 }
 
 

@@ -107,14 +107,16 @@ router.get('/friend/:id/page/:page',function(req,res){
     //console.log(user)
     var weeklies = user && user.weeklies ? user.weeklies : []
     var name = user && user.name ? user.name : ''
+    // console.log('weeklies')
+    console.log(weeklies)
     var times = weeklies.map(function(item,index){
-      var arr = []
+      //var arr = []
       //console.log(item)
-      arr[index] = item['time']
-      return arr
+      return item['time']
+      //return arr
     })
-
-    //console.log(times)
+    console.log('times')
+    console.log(times)
     var data = {
       friendId:friendId,
       name:name,

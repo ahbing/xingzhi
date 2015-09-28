@@ -55,7 +55,7 @@
         var page = this.weeklypage
         api.user.friend(friendId,page,function(res){
           //返回該朋友的週報日曆
-          //console.log(res)
+          console.log(res)
           var weeklies = res.weeklies
           var friendId = res.friendId
           var name = res.name

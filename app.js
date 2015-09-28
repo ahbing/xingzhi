@@ -30,7 +30,7 @@ app.use(session({
     secret: 'betahouse222',
     saveUninitialized: true,
     resave: false,
-    ttl:30*24*60*60
+    ttl:30*24*60*60 
 }));
 
 app.use('/', routes);

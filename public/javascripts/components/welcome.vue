@@ -21,7 +21,7 @@
             window.location.hash = '/person'
           }else{
             //刪除 LocalStorage 的值
-            api.user.logout()
+            api.user.deleteLocalUser()
             window.location.hash = '/login'
           }
         }.bind(this))
